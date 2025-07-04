@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const activateBtns = document.querySelectorAll(
 		".extensions__extension-activate"
 	);
+	const allExtensions = document.querySelectorAll(".extensions__extension");
+	const controls = document.querySelector(".extensions__controls");
 
 	const handleMode = () => {
 		const body = document.body;
@@ -19,6 +21,38 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	};
 
+	const handleFilter = (e) => {
+		const allBtns = controls.querySelectorAll(".extensions__btn");
+		allBtns.forEach((btn) => btn.classList.remove("current"));
+		e.target.classList.add("current");
+		if (e.target.matches(".extensions__btn--all")) {
+			showAllExtensions(allExtensions);
+		} else if (e.target.matches(".extensions__btn--active")) {
+			hideInactive(allExtensions);
+		} else if (e.target.matches(".extensions__btn--inactive")) {
+			hideActive(allExtensions);
+		}
+	};
+
+	const hideInactive = (extensions) => {
+		showAllExtensions(allExtensions);
+		extensions.forEach((el) => {
+			if (!el.classList.contains("active")) {
+				el.style.display = "none";
+			}
+		});
+	};
+	const hideActive = (extension) => {
+		showAllExtensions(allExtensions);
+		extension.forEach((el) => {
+			if (el.classList.contains("active")) {
+				el.style.display = "none";
+			}
+		});
+	};
+	const showAllExtensions = (extension) => {
+		extension.forEach((el) => (el.style.display = "block"));
+	};
 	const loadMode = () => {
 		const mode = localStorage.getItem("theme");
 		const body = document.body;
@@ -32,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 
 	const loadActiveState = () => {
-		const allExtensions = document.querySelectorAll(".extensions__extension");
 		allExtensions.forEach((el) => {
 			const id = el.dataset.id;
 			const state = localStorage.getItem(`active-${id}`);
@@ -67,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			parent.remove();
 		})
 	);
+	controls.addEventListener("click", handleFilter);
 	loadActiveState();
 	loadMode();
 	modeToggler.addEventListener("click", handleMode);
