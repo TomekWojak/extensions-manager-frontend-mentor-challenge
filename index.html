@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Browser extensions manager UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header__content wrapper">
+      <img width="316" height="72" src="./assets/images/logo.svg" alt="Extensions' logo"
+        class="header__img header__img--dark">
+      <img width="316" height="72" src="./assets/images/logo-light.svg" alt="Extensions' logo"
+        class="header__img header__img--light">
+      <button class="header__mode-toggler" aria-label="Set dark mode">
+        <img width="22" height="22" src="./assets/images/icon-moon.svg" alt="" class="header__icon">
+        <img width="22" height="22" src="./assets/images/icon-sun.svg" alt="" class="header__icon">
+      </button>
+    </div>
+  </header>
+  <main>
+    <section class="extensions">
+      <div class="extensions__content wrapper">
+        <div class="extensions__header">
+          <h1 class="extensions__title">Extensions List</h1>
+          <div class="extensions__controls">
+            <button class="extensions__btn extensions__btn--all">All</button>
+            <button class="extensions__btn extensions__btn--active">Active</button>
+            <button class="extensions__btn extensions__btn--inactive">Inactive</button>
+          </div>
+        </div>
+        <div class="extensions__body">
+
+          <div class="extensions__extension" data-id="1">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-devlens.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">DevLens</h2>
+                <div class="extensions__extension-info">Quickly inspect page layouts and visualize element boundaries.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="2">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-style-spy.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">StyleSpy</h2>
+                <div class="extensions__extension-info">Instantly analyze and copy CSS from any webpage element.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="3">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-speed-boost.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">SpeedBoost</h2>
+                <div class="extensions__extension-info">Optimizes browser resource usage to accelerate page loading.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="4">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images//logo-json-wizard.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">JSONWizard</h2>
+                <div class="extensions__extension-info">Formats, validates, and prettifies JSON responses in-browser.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="5">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-tab-master-pro.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">TabMaster Pro</h2>
+                <div class="extensions__extension-info">Organizes browser tabs into groups and sessions.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="6">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-viewport-buddy.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">ViewportBuddy</h2>
+                <div class="extensions__extension-info">Simulates various screen resolutions directly within the
+                  browser.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="7">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-markup-notes.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">Markup Notes</h2>
+                <div class="extensions__extension-info">Enables annotation and notes directly onto webpages for
+                  collaborative debugging.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="8">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-grid-guides.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">GridGuides</h2>
+                <div class="extensions__extension-info">Overlay customizable grids and alignment guides on any webpage.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="9">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-palette-picker.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">Palette Picker</h2>
+                <div class="extensions__extension-info">Instantly extracts color palettes from any webpage.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="10">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-link-checker.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">LinkChecker</h2>
+                <div class="extensions__extension-info">Scans and highlights broken links on any page.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="11">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-dom-snapshot.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">DOM Snapshot</h2>
+                <div class="extensions__extension-info">Capture and export DOM structures quickly.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+          <div class="extensions__extension" data-id="12">
+            <div class="extensions__extension-top">
+              <img width="292" height="292" loading="lazy" src="./assets/images/logo-console-plus.svg" alt=""
+                class="extensions__extension-img">
+              <div class="extensions__extension-text">
+                <h2 class="extensions__extension-title">ConsolePlus</h2>
+                <div class="extensions__extension-info">Enhanced developer console with advanced filtering and logging.
+                </div>
+              </div>
+            </div>
+            <div class="extensions__extension-bottom">
+              <button class="extensions__extension-remove">Remove</button>
+              <button class="extensions__extension-activate" aria-label="Activate extension"><span
+                  class="extensions__extension-activate-toggler"></span></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Challenge by Frontend Mentor - https://www.frontendmentor.io?ref=challenge -->
+  </div>
+</body>
+
+</html>
