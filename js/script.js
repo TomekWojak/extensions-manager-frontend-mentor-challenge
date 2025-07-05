@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	);
 	const allExtensions = document.querySelectorAll(".extensions__extension");
 	const controls = document.querySelector(".extensions__controls");
+	const errorInfo = document.querySelector(".empty-info");
 
 	const handleMode = () => {
 		const body = document.body;
@@ -20,27 +21,40 @@ document.addEventListener("DOMContentLoaded", function () {
 			modeToggler.setAttribute("aria-label", "Set light mode");
 		}
 	};
-
 	const handleFilter = (e) => {
 		const allBtns = controls.querySelectorAll(".extensions__btn");
 		allBtns.forEach((btn) => btn.classList.remove("current"));
 		e.target.classList.add("current");
 		if (e.target.matches(".extensions__btn--all")) {
 			showAllExtensions(allExtensions);
+			errorInfo.style.display = "none";
 		} else if (e.target.matches(".extensions__btn--active")) {
 			hideInactive(allExtensions);
 		} else if (e.target.matches(".extensions__btn--inactive")) {
 			hideActive(allExtensions);
+			errorInfo.style.display = "none";
 		}
 	};
 
 	const hideInactive = (extensions) => {
 		showAllExtensions(allExtensions);
+
 		extensions.forEach((el) => {
 			if (!el.classList.contains("active")) {
 				el.style.display = "none";
 			}
 		});
+		checkIfEmpty();
+	};
+	const checkIfEmpty = () => {
+		const activeExtensions = Array.from(allExtensions).filter((el) =>
+			el.classList.contains("active")
+		);
+		if (activeExtensions.length === 0) {
+			errorInfo.style.display = "block";
+		} else {
+			errorInfo.style.display = "none";
+		}
 	};
 	const hideActive = (extension) => {
 		showAllExtensions(allExtensions);
@@ -56,12 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	const loadMode = () => {
 		const mode = localStorage.getItem("theme");
 		const body = document.body;
-		if (mode === "light") {
-			body.classList.remove("dark");
-			modeToggler.setAttribute("aria-label", "Set dark mode");
-		} else {
+		if (mode === "dark") {
 			body.classList.add("dark");
 			modeToggler.setAttribute("aria-label", "Set light mode");
+		} else {
+			body.classList.remove("dark");
+			modeToggler.setAttribute("aria-label", "Set dark mode");
 		}
 	};
 
@@ -97,7 +111,15 @@ document.addEventListener("DOMContentLoaded", function () {
 	removeBtns.forEach((el) =>
 		el.addEventListener("click", () => {
 			const parent = el.closest(".extensions__extension");
+			const parentId = parent.dataset.id;
+			parent.classList.remove("active");
 			parent.remove();
+			localStorage.removeItem(`active-${parentId}`);
+
+			const isActive = document.querySelector('.extensions__btn--active').classList.contains('current')
+			if(isActive){
+				checkIfEmpty()
+			}
 		})
 	);
 	controls.addEventListener("click", handleFilter);

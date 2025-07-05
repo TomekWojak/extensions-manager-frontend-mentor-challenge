@@ -99,6 +99,14 @@ body {
   margin: 0 auto;
 }
 
+.empty-info {
+  display: none;
+  padding: 7em 0 10em;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  text-align: center;
+  color: var(--textColor);
+}
+
 body.dark .header__mode-toggler:focus-visible,
 .extensions__btn:focus-visible,
 .extensions__extension-remove:focus-visible,
@@ -167,6 +175,7 @@ body.dark .header__mode-toggler:focus-visible,
 
 .extensions {
   padding: 2em;
+  min-height: 100vh;
 }
 .extensions__header {
   text-align: center;
@@ -204,6 +213,9 @@ body.dark .header__mode-toggler:focus-visible,
   margin-block-start: 3em;
 }
 .extensions__extension {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1.5em;
   margin-block-end: 1.2em;
   background-color: var(--mainC);
